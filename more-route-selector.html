@@ -139,10 +139,13 @@ Polymer({
 
   _updateRoutes: function() {
     var routes = [];
-    if (this._managedSelector) {
-      routes = this._managedSelector.items.map(this._routeForItem.bind(this));
-    }
-    this._setRoutes(routes);
+    var _this = this;
+    setTimeout(function() {
+      if (_this._managedSelector) {
+        routes = _this._managedSelector.items.map(_this._routeForItem.bind(_this));
+      }
+      _this._setRoutes(routes);
+    }, 100);
   },
 
   _onMoreRouteChange: function(event) {
